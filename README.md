@@ -61,7 +61,7 @@ To validate our results use the following commands.
 
 Download script and benchmark codes:
 ```
-git clone https://github.com/RRZE-HPC/pmbs18-paper-appendix
+git clone https://github.com/RRZE-HPC/pmbs2018-paper-artifact
 cd pmbs18-paper-appendix/
 ```
 Fix frequencies and disable turbo mode on CPU (for 1.8 GHz, or which ever frequency your CPU will be stable on):
