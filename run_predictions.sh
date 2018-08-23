@@ -13,12 +13,12 @@ echo 'Building benchmarks...'
 
 # Insert IACA marker (kerncraft/iaca_marker must be in $PATH)
 echo 'Insert IACA marker...'
-echo '0\n' | iaca_marker div.s.skl.O1.s -o div.s.skl.O1-iaca.s #.L2
-echo '0\n' | iaca_marker div.s.skl.O2.s -o div.s.skl.O2-iaca.s #.L2
-echo '0\n' | iaca_marker div.s.skl.O3.s -o div.s.skl.O3-iaca.s #.L2
-echo '0\n' | iaca_marker div.s.zen.O1.s -o div.s.zen.O1-iaca.s #.L2
-echo '0\n' | iaca_marker div.s.zen.O2.s -o div.s.zen.O2-iaca.s #.L2
-echo '0\n' | iaca_marker div.s.zen.O3.s -o div.s.zen.O3-iaca.s #.L2
+echo | iaca_marker div.s.skl.O1.s -o div.s.skl.O1-iaca.s #.L2
+echo | iaca_marker div.s.skl.O2.s -o div.s.skl.O2-iaca.s #.L2
+echo | iaca_marker div.s.skl.O3.s -o div.s.skl.O3-iaca.s #.L2
+echo | iaca_marker div.s.zen.O1.s -o div.s.zen.O1-iaca.s #.L2
+echo | iaca_marker div.s.zen.O2.s -o div.s.zen.O2-iaca.s #.L2
+echo | iaca_marker div.s.zen.O3.s -o div.s.zen.O3-iaca.s #.L2
 
 # Compile SKL versions for IACA
 echo 'Compile for IACA...'
@@ -46,3 +46,6 @@ osaca --iaca --arch ZEN div.s.zen.O2-iaca.s > results/osaca.zen.O2.out
 osaca --iaca --arch ZEN div.s.zen.O3-iaca.s > results/osaca.zen.O3.out
 
 cd ..
+
+echo
+echo "Please find your results in div/results/*.out"
