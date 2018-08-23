@@ -79,7 +79,7 @@ Generate performance (must be done on AMD Zen and Intel Skylake SP machines) res
 ## A.5 Evaluation and expected result
 Fixing the frequency and disabling turbo is very important to verify our results.
 
-### `./predictions.sh`
+### `./run_predictions.sh`
 
 TODO
 
