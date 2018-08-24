@@ -1,0 +1,45 @@
+Everything seems fine! Let's start checking!
+----------------
+(0.5)
+----------------
+----------------
+(0.5)
+----------------
+----------------------------------------
+| Analyzing of file:	/proj/ciptmp/ol68umur/git/pmbs2018-paper-artifact/pi/pi.s.zen.O1-iaca.s
+| Architecture:		ZEN
+| Timestamp:		2018-08-24 05:12:55
+
+
+Throughput Analysis Report
+--------------------------
+P - Load operation can be hidden behind a past or future store instruction
+X - No information for this instruction in data file
+* - Instruction micro-ops not bound to a port
+
+
+Port Binding in Cycles Per Iteration:
+--------------------------------------------------------------------------------
+|  Port  |   0  |   1  |   2  |   3  - DV  |  4  |  5  |  6  |  7  |  8  |  9  |
+--------------------------------------------------------------------------------
+| Cycles | 1.25 | 1.25 | 2.75 | 3.75   4.0 | 0.5 | 0.5 | 0.5 | 0.5 | 1.0 | 1.0 |
+--------------------------------------------------------------------------------
+
+
+                           Ports Pressure in cycles                           
+|  0   |  1   |  2   |  3   -  DV  |  4   |  5   |  6   |  7   |  8   |  9   |
+-----------------------------------------------------------------------------
+|      |      |      |             |      |      |      |      |      |      | X .L2:
+| 0.25 | 0.25 | 0.25 | 0.25        |      |      |      |      |      |      | vxorps	%xmm0, %xmm0, %xmm0
+|      |      | 1.00 | 1.00        |      |      |      |      |      |      | vcvtsi2sd	%eax, %xmm0, %xmm0
+|      |      | 0.50 | 0.50        |      |      |      |      |      |      | vaddsd	%xmm4, %xmm0, %xmm0
+| 0.50 | 0.50 |      |             |      |      |      |      |      |      | vmulsd	%xmm3, %xmm0, %xmm0
+| 0.50 | 0.50 |      |             |      |      |      |      |      |      | vmulsd	%xmm0, %xmm0, %xmm0
+|      |      | 0.50 | 0.50        |      |      |      |      |      |      | vaddsd	%xmm2, %xmm0, %xmm0
+|      |      |      | 1.00   4.00 |      |      |      |      |      |      | vdivsd	%xmm0, %xmm1, %xmm0
+|      |      | 0.50 | 0.50        |      |      |      |      | (0.5)| (0.5)| P vaddsd	(%rsp), %xmm0, %xmm5
+|      |      |      |             |      |      |      |      | 1.00 | 1.00 | vmovsd	%xmm5, (%rsp)
+|      |      |      |             | 0.25 | 0.25 | 0.25 | 0.25 |      |      | incl	%eax
+|      |      |      |             | 0.25 | 0.25 | 0.25 | 0.25 |      |      | cmpl	$1000000000, %eax
+|      |      |      |             |      |      |      |      |      |      | jne	.L2
+Total number of estimated throughput: 4.0

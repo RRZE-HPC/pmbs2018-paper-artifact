@@ -1,0 +1,34 @@
+Everything seems fine! Let's start checking!
+-------------------------------------------
+| Analyzing of file:	/proj/ciptmp/ol68umur/git/pmbs2018-paper-artifact/triad/triad.s.skl.O1-iaca.s
+| Architecture:		ZEN
+| Timestamp:		2018-08-24 07:50:01
+
+
+Throughput Analysis Report
+--------------------------
+P - Load operation can be hidden behind a past or future store instruction
+X - No information for this instruction in data file
+* - Instruction micro-ops not bound to a port
+
+
+Port Binding in Cycles Per Iteration:
+--------------------------------------------------------------------------
+|  Port  |  0  |  1  |  2  |  3  -DV |  4  |  5  |  6  |  7  |  8  |  9  |
+--------------------------------------------------------------------------
+| Cycles | 0.5 | 0.5 | 0.5 | 0.5   0 | 0.5 | 0.5 | 0.5 | 0.5 | 2.0 | 2.0 |
+--------------------------------------------------------------------------
+
+
+                           Ports Pressure in cycles                           
+|  0   |  1   |  2   |  3   -  DV  |  4   |  5   |  6   |  7   |  8   |  9   |
+-----------------------------------------------------------------------------
+|      |      |      |             |      |      |      |      |      |      | X .L8:
+|      |      |      |             |      |      |      |      | (0.5)| (0.5)| P vmovsd	(%r12,%rax), %xmm0
+| 0.50 | 0.50 |      |             |      |      |      |      | 0.50 | 0.50 | vmulsd	0(%rbp,%rax), %xmm0, %xmm0
+|      |      | 0.50 | 0.50        |      |      |      |      | 0.50 | 0.50 | vaddsd	0(%r13,%rax), %xmm0, %xmm0
+|      |      |      |             |      |      |      |      | 1.00 | 1.00 | vmovsd	%xmm0, (%rbx,%rax)
+|      |      |      |             | 0.25 | 0.25 | 0.25 | 0.25 |      |      | addq	$8, %rax
+|      |      |      |             | 0.25 | 0.25 | 0.25 | 0.25 |      |      | cmpq	%rax, %r14
+|      |      |      |             |      |      |      |      |      |      | jne	.L8
+Total number of estimated throughput: 2.0

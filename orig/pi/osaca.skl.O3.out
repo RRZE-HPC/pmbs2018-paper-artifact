@@ -1,0 +1,44 @@
+Everything seems fine! Let's start checking!
+-----------------------------------------
+| Analyzing of file:	/proj/ciptmp/ol68umur/git/pmbs2018-paper-artifact/pi/pi.s.skl.O3-iaca.s
+| Architecture:		SKL
+| Timestamp:		2018-08-24 05:12:55
+
+
+Throughput Analysis Report
+--------------------------
+P - Load operation can be hidden behind a past or future store instruction
+X - No information for this instruction in data file
+* - Instruction micro-ops not bound to a port
+
+
+Port Binding in Cycles Per Iteration:
+------------------------------------------------------------
+|  Port  |   0  -  DV  |   1  | 2 | 3 | 4 |   5  |  6  | 7 |
+------------------------------------------------------------
+| Cycles | 8.83   16.0 | 4.83 | 0 | 0 | 0 | 3.83 | 0.5 | 0 |
+------------------------------------------------------------
+
+
+                    Ports Pressure in cycles                    
+|  0   -  DV  |  1   |  2   |  3   |  4   |  5   |  6   |  7   |
+---------------------------------------------------------------
+|             |      |      |      |      |      |      |      | X .L2:
+|             |      |      |      |      | 1.00 |      |      | vextracti128	$0x1, %ymm2, %xmm1
+| 1.00        |      |      |      |      | 1.00 |      |      | vcvtdq2pd	%xmm2, %ymm0
+| 0.50        | 0.50 |      |      |      |      |      |      | vaddpd	%ymm7, %ymm0, %ymm0
+| 0.25        | 0.25 |      |      |      | 0.25 | 0.25 |      | addl	$1, %eax
+| 1.00        |      |      |      |      | 1.00 |      |      | vcvtdq2pd	%xmm1, %ymm1
+| 0.50        | 0.50 |      |      |      |      |      |      | vaddpd	%ymm7, %ymm1, %ymm1
+| 0.33        | 0.33 |      |      |      | 0.33 |      |      | vpaddd	%ymm8, %ymm2, %ymm2
+| 0.50        | 0.50 |      |      |      |      |      |      | vmulpd	%ymm6, %ymm0, %ymm0
+| 0.50        | 0.50 |      |      |      |      |      |      | vmulpd	%ymm6, %ymm1, %ymm1
+| 0.50        | 0.50 |      |      |      |      |      |      | vfmadd132pd	%ymm0, %ymm5, %ymm0
+| 0.50        | 0.50 |      |      |      |      |      |      | vfmadd132pd	%ymm1, %ymm5, %ymm1
+| 1.00   8.00 |      |      |      |      |      |      |      | vdivpd	%ymm0, %ymm4, %ymm0
+| 1.00   8.00 |      |      |      |      |      |      |      | vdivpd	%ymm1, %ymm4, %ymm1
+| 0.50        | 0.50 |      |      |      |      |      |      | vaddpd	%ymm1, %ymm0, %ymm0
+| 0.50        | 0.50 |      |      |      |      |      |      | vaddpd	%ymm0, %ymm3, %ymm3
+| 0.25        | 0.25 |      |      |      | 0.25 | 0.25 |      | cmpl	$125000000, %eax
+|             |      |      |      |      |      |      |      | jne	.L2
+Total number of estimated throughput: 16.0

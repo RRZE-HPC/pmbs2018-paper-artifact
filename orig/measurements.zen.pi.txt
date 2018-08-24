@@ -1,0 +1,28 @@
+Model name:            AMD EPYC 7451 24-Core Processor
+CPU MHz:               1800.000
+-------------------------
+Compiled for Zen with -O1:
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+6.38206  |   940.1 |   156.7 | 1000000000 |3.141592653589971 
+Compiled for Zen with -O2:
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+2.75631  |  2176.8 |   362.8 | 1000000000 |3.141592653589971 
+Compiled for Zen with -O3:
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+1.35292  |  4434.8 |   739.1 | 1000000000 |3.141592653589652 
+
+Compiled for SKL with -O1
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+6.38253  |   940.1 |   156.7 | 1000000000 |3.141592653589971 
+Compiled for SKL with -O2
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+2.74427  |  2186.4 |   364.4 | 1000000000 |3.141592653589971 
+Compiled for SKL with -O3
+DIV Benchmark, 6 Flop/it
+Time [s] | MFlop/s | MLUP/s  | Iterations | PI
+1.37783  |  4354.7 |   725.8 | 1000000000 |3.141592653589728 

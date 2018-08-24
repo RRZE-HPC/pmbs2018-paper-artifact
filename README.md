@@ -83,7 +83,7 @@ Fixing the frequency and disabling turbo is very important to verify our results
 
 TODO
 
-We expect these numbers to exactly match those in the paper. If your numbers deviate you will mostlikly have used a different compiler. Please compare the generated assembly of your compiler (found in `div/*.s`) with those we have generated for the paper (found in `div/orig/*.s`).
+We expect these numbers to exactly match those in the paper. If your numbers deviate you will mostlikly have used a different compiler. Please compare the generated assembly of your compiler (found in `pi/*.s`) with those we have generated for the paper (found in `orig/pi/*.s`).
 
 Compare numbers to Table II, IV and V.
 

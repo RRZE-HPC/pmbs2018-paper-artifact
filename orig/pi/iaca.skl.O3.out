@@ -1,0 +1,49 @@
+Intel(R) Architecture Code Analyzer Version -  v3.0-28-g1ba2cbb build date: 2017-10-23;16:42:45
+Analyzed File -  pi.s.skl.O3-iaca.o
+Binary Format - 64Bit
+Architecture  -  SKL
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 16.00 Cycles       Throughput Bottleneck: Backend
+Loop Count:  22
+Port Binding In Cycles Per Iteration:
+--------------------------------------------------------------------------------------------------
+|  Port  |   0   -  DV   |   1   |   2   -  D    |   3   -  D    |   4   |   5   |   6   |   7   |
+--------------------------------------------------------------------------------------------------
+| Cycles |  6.0    16.0  |  6.0  |  0.0     0.0  |  0.0     0.0  |  0.0  |  4.0  |  1.0  |  0.0  |
+--------------------------------------------------------------------------------------------------
+
+DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3)
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion occurred
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256/AVX512 instruction, dozens of cycles penalty is expected
+X - instruction not supported, was not accounted in Analysis
+
+| Num Of   |                    Ports pressure in cycles                         |      |
+|  Uops    |  0  - DV    |  1   |  2  -  D    |  3  -  D    |  4   |  5   |  6   |  7   |
+-----------------------------------------------------------------------------------------
+|   1      |             |      |             |             |      | 1.0  |      |      | vextracti128 xmm1, ymm2, 0x1
+|   2      | 1.0         |      |             |             |      | 1.0  |      |      | vcvtdq2pd ymm0, xmm2
+|   1      |             | 1.0  |             |             |      |      |      |      | vaddpd ymm0, ymm0, ymm7
+|   1      |             |      |             |             |      |      | 1.0  |      | add eax, 0x1
+|   2      | 1.0         |      |             |             |      | 1.0  |      |      | vcvtdq2pd ymm1, xmm1
+|   1      |             | 1.0  |             |             |      |      |      |      | vaddpd ymm1, ymm1, ymm7
+|   1      |             |      |             |             |      | 1.0  |      |      | vpaddd ymm2, ymm2, ymm8
+|   1      |             | 1.0  |             |             |      |      |      |      | vmulpd ymm0, ymm0, ymm6
+|   1      | 1.0         |      |             |             |      |      |      |      | vmulpd ymm1, ymm1, ymm6
+|   1      |             | 1.0  |             |             |      |      |      |      | vfmadd132pd ymm0, ymm5, ymm0
+|   1      | 1.0         |      |             |             |      |      |      |      | vfmadd132pd ymm1, ymm5, ymm1
+|   1      | 1.0     8.0 |      |             |             |      |      |      |      | vdivpd ymm0, ymm4, ymm0
+|   1      | 1.0     8.0 |      |             |             |      |      |      |      | vdivpd ymm1, ymm4, ymm1
+|   1      |             | 1.0  |             |             |      |      |      |      | vaddpd ymm0, ymm0, ymm1
+|   1      |             | 1.0  |             |             |      |      |      |      | vaddpd ymm3, ymm3, ymm0
+|   1*     |             |      |             |             |      |      |      |      | cmp eax, 0x7735940
+|   0*F    |             |      |             |             |      |      |      |      | jnz 0xffffffffffffffbb
+Total Num Of Uops: 18
+Analysis Notes:
+Backend allocation was stalled due to unavailable allocation resources.
