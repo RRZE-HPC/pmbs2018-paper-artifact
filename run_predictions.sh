@@ -67,21 +67,12 @@ echo 'Building PI benchmarks...'
 
 # Insert IACA marker (kerncraft/iaca_marker must be in $PATH)
 echo 'Insert IACA marker...'
-<<<<<<< HEAD
-echo | iaca_marker div.s.skl.O1.s -o div.s.skl.O1-iaca.s #.L2
-echo | iaca_marker div.s.skl.O2.s -o div.s.skl.O2-iaca.s #.L2
-echo | iaca_marker div.s.skl.O3.s -o div.s.skl.O3-iaca.s #.L2
-echo | iaca_marker div.s.zen.O1.s -o div.s.zen.O1-iaca.s #.L2
-echo | iaca_marker div.s.zen.O2.s -o div.s.zen.O2-iaca.s #.L2
-echo | iaca_marker div.s.zen.O3.s -o div.s.zen.O3-iaca.s #.L2
-=======
 printf '0\n' | iaca_marker pi.s.skl.O1.s -o pi.s.skl.O1-iaca.s #.L2
 printf '0\n' | iaca_marker pi.s.skl.O2.s -o pi.s.skl.O2-iaca.s #.L2
 printf '0\n' | iaca_marker pi.s.skl.O3.s -o pi.s.skl.O3-iaca.s #.L2
 printf '0\n' | iaca_marker pi.s.zen.O1.s -o pi.s.zen.O1-iaca.s #.L2
 printf '0\n' | iaca_marker pi.s.zen.O2.s -o pi.s.zen.O2-iaca.s #.L2
 printf '0\n' | iaca_marker pi.s.zen.O3.s -o pi.s.zen.O3-iaca.s #.L2
->>>>>>> 165fee7c11905206db62f5c36564b14bcdb35a40
 
 # Compile SKL versions for IACA
 printf '\nCompile for IACA...\n'
@@ -111,4 +102,8 @@ osaca --iaca --arch ZEN pi.s.zen.O3-iaca.s > results/osaca.zen.O3.out
 cd ..
 
 echo
-echo "Please find your results in div/results/*.out"
+echo "Please compare your PI results in pi/results/*.out with orig/pi/*.out"
+echo "and Table V of Paper."
+echo
+echo "Please compare your TRIAD results in triad/results/*.out with orig/traid/*.out"
+echo "and Table II and IV, Figure 4, as well as Listings in Section III-A of paper."
