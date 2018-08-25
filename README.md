@@ -39,7 +39,7 @@ We ran on an AMD EPYC 7451 (Zen architecture) at 1.8 GHz (fixed, turbo disabled)
 ### A.2.4 Software dependencies
 * Python >= 3.5, with the following packages installed: numpy, pandas, kerncraft
 * likwid
-* GNU GCC 7.3
+* GNU GCC 7.2.0
 
 On Ubuntu 17.10 install with:
 ```
@@ -81,9 +81,9 @@ Fixing the frequency and disabling turbo is very important to verify our results
 
 ### `./run_predictions.sh`
 
-TODO
+We expect these numbers to exactly match those in the paper. If your numbers deviate you will mostlikly have used a different compiler. Please compare the generated assembly of your compiler (found in `pi/*.s` and triad/*.s, respectively) with those we have generated for the paper (found in `orig/pi/*.s` and `orig/triad/*.s).
 
-We expect these numbers to exactly match those in the paper. If your numbers deviate you will mostlikly have used a different compiler. Please compare the generated assembly of your compiler (found in `pi/*.s`) with those we have generated for the paper (found in `orig/pi/*.s`).
+The OSACA and IACA output of your measurements can be found in the `results` directory of the corresponding benchmark in the structure `osaca.[architecture].[optimization flag].out`.
 
 Compare numbers to Table II, IV and V.
 
@@ -91,6 +91,8 @@ Compare numbers to Table II, IV and V.
 It outputs performance measurements in Time [s], MFlop/s and MLUP/s. MLUP/s can be easily translated to cy/it, as used in the paper: 1 / MLUP/s * Frequency. E.g., 1 / (362.6 MLUP/s) * 1.8 GHz = 4.96 cy/it.
 
 We expect these numbers to lie within 10% of those in the paper, if run on the same micro architectures as mentioned. If your numbers are significantly faster, turbo mode or frequency scaling might be the reson. If they are slower, while running on a laptop or desktop machine, energy saving features may have interfered.
+
+The measured results will be stored as `measurements.[benchmark].txt`.
 
 Compare numbers to Table I, III and V.
 
