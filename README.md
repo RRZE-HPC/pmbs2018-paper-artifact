@@ -1,5 +1,4 @@
 # Artifact Description: Automated Instruction Stream Throughput Prediction for Intel and AMD Microarchitectures
-[comment]: <> (keep both copies up-to-date: pmbs2018-paper/artifact-appendix.md and pmbs2018-paper-artifact/README.md)
 
 * Jan Laukemann, Computer Science University of Erlangen-Nürnberg, jan.laukemann@fau.de
 * Julian Hammer, RRZE University of Erlangen-Nürnberg, julian.hammer@fau.de, +49 9131 85 20101
