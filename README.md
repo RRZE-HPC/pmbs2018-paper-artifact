@@ -2,7 +2,7 @@
 
 * Jan Laukemann, Computer Science University of Erlangen-Nürnberg, jan.laukemann@fau.de
 * Julian Hammer, RRZE University of Erlangen-Nürnberg, julian.hammer@fau.de, +49 9131 85 20101
-* Johannes Hofmann, Chair of Computer Architecture University of Erlangen-Nürnberg, johannes.hofmann@fau.de
+* Johannes Hofmann, Chair of Computer Architecture, University of Erlangen-Nürnberg, johannes.hofmann@fau.de
 * Georg Hager (advisor), RRZE University of Erlangen-Nürnberg, georg.hager@fau.de
 * Gerhard Wellein (advisor), RRZE University of Erlangen-Nürnberg, gerhard.wellein@fau.de
 
